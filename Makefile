@@ -10,7 +10,7 @@ NAME = minitalk.a
 LIBFT = ./libft
 #convert all .c to .o
 OBJS = $(SRCS:.c=.o)
-SRCS = ft_printf.c ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putpointer.c ft_putstr.c
+SRCS = client.c
 #Msg Color
 GRN = \033[92m
 RED = \033[0;31m

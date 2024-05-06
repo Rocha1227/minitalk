@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-char ft_putchar_bit(char c)
+void ft_putchar_bit(char c)
 {
 	if(c > 0)
 		write(1,&c, 1);
@@ -43,10 +43,18 @@ int	main(int argc, char *argv[])
 	struct	sigaction action;
 
 	action.sa_handler = &handler;
+	(void)argv;
 	
 	if(argc != 1)
+	{
 		ft_printf("Incorrect Input! Try ./server\n");
 		return (0);
-	ft_printf("My PiD is %d", getpid());
-
+	}
+	ft_printf("My PiD is %d \n", getpid());
+	while(1)
+	{
+		sigaction(SIGUSR1, &action, NULL);
+		sigaction(SIGUSR2, &action, NULL);
+		pause();
+	}
 }
