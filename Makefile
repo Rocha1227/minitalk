@@ -20,11 +20,7 @@ all:$(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
-	@echo "$(GRN) Libft OK $(DFT)"
-	cp ./libft/libft.a $(NAME)
-	@echo "$(GRN) copy to libftprintf OK! $(DFT)"
-	$(ARCH) $(NAME) $(OBJS)
-	@echo "$(GRN) $(NAME) OK! $(DFT)"
+	@echo "$(GRN) copy to LIBFT OK! $(DFT)"
 
 
 clean:

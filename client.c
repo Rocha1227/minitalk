@@ -25,7 +25,7 @@ void	text_to_server(int pid, char c)
 			if (c && (1 << bit) == 0)
 				kill(pid, SIGUSR2);
 			else
-				kill(pid, SUGUSR1);
+				kill(pid, SIGUSR1);
 			usleep(250);
 			bit++;
 		}
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 	
 	i = 0;
 	if(argc != 3)
-		ft_printf("Insert correct format! .client + pid + string"\n);
+		ft_printf("Insert correct format! .client + pid + string\n");
 	else 
 	{
 		pid = ft_atoi(argv[1]);

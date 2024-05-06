@@ -7,7 +7,8 @@
 
 /* PROTOTYPES*/
 
-int	text_to_server(int pid, char c);
-char ft_putchar_bit(char c);
+void	text_to_server(int pid, char c);
+void ft_putchar_bit(char c);
+void	handler (int signal);
 
 #endif
