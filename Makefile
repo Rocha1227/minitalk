@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: krocha <krocha@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/13 15:28:29 by krocha            #+#    #+#              #
+#    Updated: 2024/05/13 15:28:30 by krocha           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC	=	cc
 CFLAGS = -Wall -Wextra -Werror
 #command to remove compiled files
@@ -31,9 +43,11 @@ all:$(CLIENT) $(SERVER)
 
 $(SERVER): $(LIBFT) $(SERVER_OBJS)
 	$(CC) $(CFLAGS) $(SERVER_OBJS) $(LIBFT) -o $@
+	@echo "$(GRN) SERVER OK $(DFT)"
 
 $(CLIENT): $(LIBFT) $(CLIENT_OBJS)
 	$(CC) $(CFLAGS) $(CLIENT_OBJS) $(LIBFT) -o $@
+	@echo "$(GRN) CLIENT OK $(DFT)"
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFTDIR)
