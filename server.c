@@ -30,7 +30,7 @@ void	handler (int signal)
 		c |= 1 << bit;
 		bit++;
 	}
-	if(bit = 8)
+	if(bit == 8)
 	{
 		ft_putchar_bit(c);
 		bit = 0;
