@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rocha1227 <rocha1227@student.42.fr>        +#+  +:+       +#+         #
+#    By: krocha <krocha@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 15:28:29 by krocha            #+#    #+#              #
-#    Updated: 2024/07/01 10:05:22 by rocha1227        ###   ########.fr        #
+#    Updated: 2024/07/01 15:35:59 by krocha           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,13 @@ $(SERVER): $(LIBFT) $(SERVER_OBJS)
 $(CLIENT): $(LIBFT) $(CLIENT_OBJS)
 	$(CC) $(CFLAGS) $(CLIENT_OBJS) $(LIBFT) -o $@
 	@echo "$(GRN) CLIENT OK $(DFT)"
+$(SERVER): $(LIBFT) $(SERVER_OBJS)
+	$(CC) $(CFLAGS) $(SERVER_OBJS) $(LIBFT) -o $@
+	@echo "$(GRN) SERVER OK $(DFT)"
+
+$(CLIENT): $(LIBFT) $(CLIENT_OBJS)
+	$(CC) $(CFLAGS) $(CLIENT_OBJS) $(LIBFT) -o $@
+	@echo "$(GRN) CLIENT OK $(DFT)"
 
 $(SERVER_BONUS): $(LIBFT) $(SERVER_BONUS_OBJS)
 	$(CC) $(CFLAGS) $(SERVER_BONUS_OBJS) $(LIBFT) -o $@
@@ -63,7 +70,6 @@ $(SERVER_BONUS): $(LIBFT) $(SERVER_BONUS_OBJS)
 $(CLIENT_BONUS): $(LIBFT) $(CLIENT_BONUS_OBJS)
 	$(CC) $(CFLAGS) $(CLIENT_BONUS_OBJS) $(LIBFT) -o $@
 	@echo "$(GRN) CLIENT BONUS OK $(DFT)"
-
 $(LIBFT):
 	$(MAKE) -C $(LIBFTDIR)
 	@echo "$(GRN) LIBFT OK $(DFT)"
@@ -85,4 +91,3 @@ fclean: clean
 	@echo "$(GRN) Fclean OK $(DFT)"
 	
 re: fclean all
-

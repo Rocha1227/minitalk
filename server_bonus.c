@@ -3,26 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rocha1227 <rocha1227@student.42.fr>        +#+  +:+       +#+        */
+/*   By: krocha <krocha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 13:53:26 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/01 10:03:34 by rocha1227        ###   ########.fr       */
+/*   Updated: 2024/07/01 12:49:31 by krocha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 
-void	ft_putchar_bit(char c)
-{
-	if (c >= 0)
-		write(1, &c, 1);
-}
-
 void	handler(int signal, siginfo_t *info, void *n)
 {
 	static int	c;
 	static int	bit = 0;
-	
+
 	(void) n;
 	(void) info;
 	if (signal == SIGUSR1)
@@ -32,7 +26,7 @@ void	handler(int signal, siginfo_t *info, void *n)
 	{
 		if (c == '\0')
 			kill(info->si_pid, SIGUSR1);
-		ft_putchar_bit(c);
+		write(1, &c, 1);
 		bit = 0;
 		c = 0;
 	}
@@ -41,7 +35,7 @@ void	handler(int signal, siginfo_t *info, void *n)
 int	main(int argc, char *argv[])
 {
 	struct sigaction	action;
-	
+
 	(void)argv;
 	action.sa_sigaction = &handler;
 	action.sa_flags = SA_SIGINFO;
